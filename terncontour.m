@@ -62,7 +62,7 @@ yr = linspace(min(y), max(y), Ngrid);
 % ...then use griddata to get a plottable array
 zg = griddata(x, y, Z, xg, yg, 'cubic');
 
-[hold_state, cax, next] = ternaxes(majors);
+[hold_state, cax, next] = terngrid(majors);
 
 % plot data
 [Cl, Ha] = contour(xg, yg, zg, I, 'k-');

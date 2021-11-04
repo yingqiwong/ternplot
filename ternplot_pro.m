@@ -62,7 +62,7 @@ Br = linspace(min(fB), max(fB), N);
 zg = griddata(x, y, Z, xg, yg, 'v4');
 zg(Ag + Bg > 1) = nan;
 % Make ternary axes
-[hold_state, cax, next] = ternaxes(num_axes_steps);
+[hold_state, cax, next] = terngrid(num_axes_steps);
 % plot data
 tri = simpletri(N);
 h = trisurf(tri, xg, yg, zg);

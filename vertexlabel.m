@@ -26,10 +26,18 @@ if (nargin~=4)
 	offset=0.03;
 end
 
-r(1) = text(-offset, -offset, C, 'horizontalalignment', 'right');
-r(2) = text(1+offset, -offset, A, 'horizontalalignment', 'left');
-r(3) = text(0.5, sin(deg2rad(60))+offset, B, 'horizontalalignment', 'center');
+FontSize = get(gca,'FontSize');
 
-if nargout > 0
-    h = r;
-end;
+% label axis names
+r(1) = text( 1.02, 0, A,'Units','normalized','FontSize',FontSize,...
+    'HorizontalAlignment','left'  ,'VerticalAlignment','middle');
+
+r(2) = text( 0.5 , 1, B,'Units','normalized','FontSize',FontSize,...
+    'HorizontalAlignment','center','VerticalAlignment','bottom');
+
+r(3) = text(-0.02, 0, C,'Units','normalized','FontSize',FontSize,...
+    'HorizontalAlignment','right' ,'VerticalAlignment','middle');
+
+
+if nargout > 0, h = r; end
+end

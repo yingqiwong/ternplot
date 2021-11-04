@@ -53,7 +53,7 @@ if nargin < 3
     C = 1 - (A+B);
 end;
 
-[varargin, majors] = extractpositional(varargin, 'majors', 10);
+[varargin, majors    ] = extractpositional(varargin, 'majors', 10);
 [varargin, sortpoints] = extractpositional(varargin, 'sortpoints', false);
 
 [fA, fB, fC] = fractions(A, B, C);
@@ -67,7 +67,7 @@ if sortpoints
 end
 
 % Make ternary axes
-[hold_state, cax, next] = ternaxes(majors);
+[hold_state, cax, next] = terngrid(majors);
 
 % plot data
 q = plot(x, y, varargin{:});

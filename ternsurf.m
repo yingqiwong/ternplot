@@ -65,7 +65,7 @@ zg = griddata(x, y, Z, xg, yg, 'v4');
 zg(Ag + Bg > 1) = nan;
 
 % Make ternary axes
-[hold_state, cax, next] = ternaxes(majors);
+[hold_state, cax, next] = terngrid(majors);
 
 % plot data
 tri = simpletri(N);

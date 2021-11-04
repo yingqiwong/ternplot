@@ -1,8 +1,4 @@
-
-
-clear all; 
-
-%% Simple two-d plot (data points and a model fit)
+%% Simple two-d plot
 
 dataA = linspace(0.1, 0.7, 20);
 dataB = -dataA.^2 + dataA + (rand(size(dataA)) - 0.5)/7;
@@ -12,19 +8,23 @@ A = linspace(0, 1, 100);
 B = -A.^2+A;
 
 figure;
-set(gcf,'defaultaxesfontsize',18);
-hdata = ternplot(dataA,dataB,dataC, 'majors', 10, 'r.', 'markersize',20);
-hold on;
-hmodel = ternplot(A,B,(1-A-B),'linewidth',3);
+ternplot(dataA, dataB, dataC, 'r.', 'majors', 5);
+hold on
+ternplot(A, B)
 ternlabel('A', 'B', 'C')
-% vertexlabel('A', 'B', 'C'); % check usual vertex labeling
-legend([hdata, hmodel], {'data','model'});
+legend('Data', 'Fit')
+hold off
 
+%% Simple two-d density plot
+num_axes_steps = 5;
+num_color_classes = 5;
+ternplot_pro(dataA, dataB, dataC, num_axes_steps, num_color_classes);
+ternlabel('A', 'B', 'C');
+hold on
+ternplot(dataA, dataB, dataC, 'r.');
+hold off
 
-%% surface plots (for continuous data)
-
-clear all;
-
+%% Three D plot for viscosity of HIPS, ABS and PETG polymer blends
 experimental = [...
     1.000	0.000	0.000
     0.000	1.000	0.000
@@ -66,26 +66,13 @@ A = experimental(:, 1)';
 B = experimental(:, 2)';
 C = 1 - (A + B);
 
-
-figure; 
-set(gcf,'defaultaxesfontsize',18);
-ternscatter(A, B, C, data); 
-ternlabel('A', 'B', 'C')
-colorbar;
-
-figure; 
-set(gcf,'defaultaxesfontsize',18);
-ternpcolor(A, B, data); shading interp
-ternlabel('A', 'B', 'C')
-colorbar;
-
-figure; 
-set(gcf,'defaultaxesfontsize',18);
-ternpcolor(A, B, C, data, 10); shading interp
-ternlabel('A', 'B', 'C')
-
-figure; 
-set(gcf,'defaultaxesfontsize',18);
-terncontour(A, B, data); 
-ternlabel('A', 'B', 'C')
-
+figure
+subplot(2, 2, 1)
+ternplot(A, B, C, '.'); ternlabel('HIPS', 'ABS', 'PETG');
+subplot(2, 2, 2)
+ternpcolor(A, B, data); ternlabel('HIPS', 'ABS', 'PETG');
+shading interp
+subplot(2, 2, 3)
+terncontour(A, B, data); ternlabel('HIPS', 'ABS', 'PETG');
+subplot(2, 2, 4)
+ternsurf(A, B, data);
