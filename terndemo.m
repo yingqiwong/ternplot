@@ -66,7 +66,6 @@ A = experimental(:, 1)';
 B = experimental(:, 2)';
 C = 1 - (A + B);
 
-
 figure; 
 set(gcf,'defaultaxesfontsize',18);
 ternscatter(A, B, C, data); 
@@ -88,4 +87,4 @@ figure;
 set(gcf,'defaultaxesfontsize',18);
 terncontour(A, B, data); 
 ternlabel('A', 'B', 'C')
-
+    
