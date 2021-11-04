@@ -16,7 +16,7 @@ function [hold_state, cax, next] = terngrid (m)
 n      = m-1;
 grids  = linspace(0,1,m+1);
 grids  = grids(1:end-1);
-labels = num2str(1-grids(2:end)');
+labels = num2str(grids(2:end)');
 
 % get hold state
 cax = newplot;
@@ -24,9 +24,9 @@ next = lower(get(cax,'NextPlot'));
 hold_state = ishold;
 
 % set up ternary coordinates
-[x1, y1] = terncoords(grids, zeros(size(grids)), 1-grids);      % left
-[x2, y2] = terncoords(zeros(size(grids)), 1-grids, grids);      % right
-[x3, y3] = terncoords(1-grids, grids, zeros(size(grids)));      % bottom
+[x1, y1] = terncoords(zeros(size(grids)), 1-grids, grids);      % left
+[x2, y2] = terncoords(grids, zeros(size(grids)), 1-grids);      % bottom
+[x3, y3] = terncoords(1-grids, grids, zeros(size(grids)));      % right
 
 % only do grids if hold is off
 if ~hold_state
@@ -53,8 +53,8 @@ if ~hold_state
     
     % label gridlines on ternary axis
     text(x1(2:end)-0.02,y1(2:end)     ,labels,'HorizontalAlignment','right' ,'VerticalAlignment','middle','FontSize',FontSize-2);
-    text(x2(2:end)+0.02,y2(2:end)     ,labels,'HorizontalAlignment','left'  ,'VerticalAlignment','middle','FontSize',FontSize-2);
-    text(x3(2:end)     ,y3(2:end)-0.02,labels,'HorizontalAlignment','center','VerticalAlignment','top'   ,'FontSize',FontSize-2);
+    text(x2(2:end)     ,y2(2:end)-0.02,labels,'HorizontalAlignment','center'  ,'VerticalAlignment','top','FontSize',FontSize-2);
+    text(x3(2:end)+0.02,y3(2:end)     ,labels,'HorizontalAlignment','left','VerticalAlignment','middle'   ,'FontSize',FontSize-2);
     
 end
 

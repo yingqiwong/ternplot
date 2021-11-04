@@ -9,15 +9,15 @@
 %       b
 %      / \
 %     /   \
-%    c --- a 
+%    c --- a
 
 % Author: Carl Sandrock 20050211
 
 % Modifications
-% 20160405 (SA) rotation of the ternary axes in clockwise/counter-clockwise order 
-%               (User must directly switch to either options via 
+% 20160405 (SA) rotation of the ternary axes in clockwise/counter-clockwise order
+%               (User must directly switch to either options via
 %               commenting/uncommenting the associated lines.
-%               Moreover, any modification on terncoords must be adjusted 
+%               Moreover, any modification on terncoords must be adjusted
 %               with associated lines on ternaxes)
 
 % Modifiers
@@ -28,12 +28,9 @@ if nargin < 3
     fC = 1 - (fA + fB);
 end
 
-direction = 'clockwise';
 
-if ~strcmp(direction, 'clockwise')
-    y = fB*sin(deg2rad(60));
-    x = fA + y*cot(deg2rad(60));
-else
-    y = fC*sin(deg2rad(60));
-    x = 1 - fA - y*cot(deg2rad(60));
+% axes always go counterclockwise
+y = fB*sin(deg2rad(60));
+x = fA + y*cot(deg2rad(60));
+
 end

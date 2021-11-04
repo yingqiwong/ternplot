@@ -7,6 +7,7 @@ clear all;
 dataA = linspace(0.1, 0.7, 20);
 dataB = -dataA.^2 + dataA + (rand(size(dataA)) - 0.5)/7;
 dataC = 1 - dataA - dataB;
+[dataA; dataB; dataC]'
 
 A = linspace(0, 1, 100);
 B = -A.^2+A;
@@ -67,24 +68,25 @@ B = experimental(:, 2)';
 C = 1 - (A + B);
 
 figure; 
-set(gcf,'defaultaxesfontsize',18);
+set(gcf,'defaultaxesfontsize',18,'Position',[300,300,1100,900]);
+
+subplot(221);
 ternscatter(A, B, C, data); 
-ternlabel('A', 'B', 'C')
+vertexlabel('A', 'B', 'C')
 colorbar;
 
-figure; 
+subplot(222);
 set(gcf,'defaultaxesfontsize',18);
 ternpcolor(A, B, data); shading interp
-ternlabel('A', 'B', 'C')
+vertexlabel('A', 'B', 'C')
 colorbar;
 
-figure; 
+subplot(223);
 set(gcf,'defaultaxesfontsize',18);
 ternpcolor(A, B, C, data, 10); shading interp
-ternlabel('A', 'B', 'C')
+vertexlabel('A', 'B', 'C')
 
-figure; 
+subplot(224);
 set(gcf,'defaultaxesfontsize',18);
 terncontour(A, B, data); 
-ternlabel('A', 'B', 'C')
-    
+vertexlabel('A', 'B', 'C')
