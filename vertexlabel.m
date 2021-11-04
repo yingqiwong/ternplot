@@ -29,14 +29,15 @@ end
 FontSize = get(gca,'FontSize');
 
 % label axis names
-r(1) = text( 1.02, 0, A,'Units','normalized','FontSize',FontSize,...
+r(1) = text(-0.02, 0, A,'Units','normalized','FontSize',FontSize,...
+    'HorizontalAlignment','right' ,'VerticalAlignment','middle');
+
+r(2) = text( 1.02, 0, B,'Units','normalized','FontSize',FontSize,...
     'HorizontalAlignment','left'  ,'VerticalAlignment','middle');
 
-r(2) = text( 0.5 , 1, B,'Units','normalized','FontSize',FontSize,...
+r(3) = text( 0.5 , 1, C,'Units','normalized','FontSize',FontSize,...
     'HorizontalAlignment','center','VerticalAlignment','bottom');
 
-r(3) = text(-0.02, 0, C,'Units','normalized','FontSize',FontSize,...
-    'HorizontalAlignment','right' ,'VerticalAlignment','middle');
 
 
 if nargout > 0, h = r; end

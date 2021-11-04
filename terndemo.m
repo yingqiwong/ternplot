@@ -1,8 +1,8 @@
 
 
-clear all; 
 
 %% Simple two-d plot (data points and a model fit)
+clear all; 
 
 dataA = linspace(0.1, 0.7, 20);
 dataB = -dataA.^2 + dataA + (rand(size(dataA)) - 0.5)/7;
@@ -17,7 +17,7 @@ hdata = ternplot(dataA,dataB,dataC, 'majors', 10, 'r.', 'markersize',20);
 hold on;
 hmodel = ternplot(A,B,(1-A-B),'linewidth',3);
 ternlabel('A', 'B', 'C')
-% vertexlabel('A', 'B', 'C'); % check usual vertex labeling
+vertexlabel('A', 'B', 'C'); % check usual vertex labeling
 legend([hdata, hmodel], {'data','model'});
 
 
