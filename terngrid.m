@@ -53,8 +53,8 @@ if ~hold_state
     
     % label gridlines on ternary axis
     text(x1(2:end)-0.02,y1(2:end)     ,labels,'HorizontalAlignment','right' ,'VerticalAlignment','middle','FontSize',FontSize-2);
-    text(x2(2:end)     ,y2(2:end)-0.02,labels,'HorizontalAlignment','center'  ,'VerticalAlignment','top','FontSize',FontSize-2);
-    text(x3(2:end)+0.02,y3(2:end)     ,labels,'HorizontalAlignment','left','VerticalAlignment','middle'   ,'FontSize',FontSize-2);
+    text(x2(2:end)     ,y2(2:end)-0.02,labels,'HorizontalAlignment','center','VerticalAlignment','top'   ,'FontSize',FontSize-2);
+    text(x3(2:end)+0.02,y3(2:end)     ,labels,'HorizontalAlignment','left'  ,'VerticalAlignment','middle','FontSize',FontSize-2);
     
 end
 

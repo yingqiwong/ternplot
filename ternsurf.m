@@ -38,7 +38,7 @@ function handle = ternsurf(A, B, C, Z, varargin)
 if nargin < 4
     Z = C;
     C = 1 - (A+B);
-end;
+end
 
 [varargin, majors] = extractpositional(varargin, 'majors', 10);
 
@@ -51,7 +51,8 @@ y = y(i);
 Z = Z(i);
 
 % The matrixes we work with should be square for the triangulation to work
-N = majors+1;
+% N = majors+1; 
+N = 25;
 
 % Now we have X, Y, Z as vectors. 
 % use meshgrid to generate a grid
