@@ -1,5 +1,5 @@
 
-function [hold_state, cax, next] = terngrid (m)
+function [hold_state, cax, next] = terngrid (m, maxz)
 %
 % terngrid (m)
 %
@@ -34,7 +34,7 @@ if ~hold_state
     % plot ternary axes
     hold on;
     set(gca,'visible','off','defaultlinelinewidth',0.5);
-    maxz = 2;
+    if nargin==1, maxz = 2; end
     plot3([0,1,0.5,0],[0,0,sin(1/3*pi),0],maxz.*ones(4,1),'color',[0,0,0],'LineWidth',3,'handlevisibility','off');
     axis equal tight;
     
