@@ -14,10 +14,10 @@ B = -A.^2+A;
 
 figure;
 set(gcf,'defaultaxesfontsize',18);
-hdata = ternplot(dataA,dataB,dataC, 'majors', 10, 'r.', 'markersize',20);
+hdata = ternplot(dataA,dataB,dataC, 'majors', 5, 'r.', 'markersize',20);
 hold on;
 hmodel = ternplot(A,B,(1-A-B),'linewidth',3);
-ternlabel('A', 'B', 'C')
+% ternlabel('A', 'B', 'C')
 vertexlabel('A', 'B', 'C'); % check usual vertex labeling
 legend([hdata, hmodel], {'data','model'});
 
@@ -68,7 +68,7 @@ B = experimental(:, 2)';
 C = 1 - (A + B);
 
 figure; 
-set(gcf,'defaultaxesfontsize',18,'Position',[300,300,1100,900]);
+set(gcf,'defaultaxesfontsize',18,'Position',[300,300,1000,700]);
 
 subplot(221);
 ternscatter(A, B, C, data); 
